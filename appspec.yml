@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+- source: /
+  destination: /var/www/html/kubernetes-setup/
+file_exists_behavior: OVERWRITE
+hooks:
+  BeforeInstall:
+  - location: buildscript/dummy.sh
+    timeout: 5
+  AfterInstall:
+  - location: buildscript/dummy.sh
+    timeout: 5
+    runas: ubuntu
+  ApplicationStart:
+  - location: buildscript/change_permission.sh
+    timeout: 30
+  ValidateService:
+  - location: buildscript/dummy.sh
+    timeout: 5
