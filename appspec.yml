@@ -3,18 +3,19 @@ os: linux
 files:
 - source: /
   destination: /var/www/html/kubernetes-setup/
-file_exists_behavior: OVERWRITE
+  file_exists_behavior: OVERWRITE # Ensure files are overwritten during deployment
+
 hooks:
   BeforeInstall:
   - location: buildscript/dummy.sh
-    timeout: 5
+    timeout: 5 # Adjust timeout as needed
   AfterInstall:
   - location: buildscript/dummy.sh
-    timeout: 5
-    runas: ubuntu
+    timeout: 5 # Adjust timeout as needed
+    runas: ubuntu # Specify the user to run the script
   ApplicationStart:
   - location: buildscript/change_permission.sh
-    timeout: 30
+    timeout: 30 # Adjust timeout as needed
   ValidateService:
   - location: buildscript/dummy.sh
-    timeout: 5
+    timeout: 5 # Adjust timeout as needed
