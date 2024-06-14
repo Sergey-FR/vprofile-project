@@ -13,8 +13,6 @@ pipeline {
         NEXUS_PASS = credentials('Nexus')
         NEXUS_USER_PSW = credentials('Nexus')
         NEXUS_PASS_PSW = credentials('Nexus')
-        NEXUS_USER = credentials('Nexus')
-        NEXUS_PASS = credentials('Nexus')
         NEXUS_LOGIN_PSW = credentials('Nexus')
         RELEASE_REPO = 'vprofile-release'
         CENTRAL_REPO = 'vpro-maven-central'
